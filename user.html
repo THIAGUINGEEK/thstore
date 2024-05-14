@@ -138,10 +138,12 @@ const users = [
     // Adicione mais usuários e senhas conforme necessário
 ];
 
-const username = localStorage.getItem('username');
-if (!users.some(user => user.username === username)) {
-    window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
-}
+setTimeout(() => {
+    const username = localStorage.getItem('username');
+    if (!users.some(user => user.username === username)) {
+        window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
+    }
+}, 1000); // Atraso de 1 segundo
     </script>
 </body>
 
