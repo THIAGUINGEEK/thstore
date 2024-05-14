@@ -399,6 +399,7 @@ function login() {
         // Usuário autenticado com sucesso
         alert('Login com sucesso!');
         hideLoginPopup();
+		localStorage.setItem('username', username)
         window.location.href = 'user.html'; // Redireciona para a página de login se o usuário não estiver autenticado
 
     } else {
