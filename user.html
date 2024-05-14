@@ -74,34 +74,6 @@
             color: #333;
             font-weight: bold;
         }
-
-        .cursos-disponiveis {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .curso-disponivel {
-            padding: 10px;
-            margin-right: 10px;
-            cursor: pointer;
-            background-color: #3498db;
-            color: #fff;
-            border-radius: 5px;
-        }
-
-        .curso-disponivel:hover {
-            background-color: #2980b9;
-        }
-
-        .cursos-adquiridos {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .cursos-adquiridos p {
-            font-weight: bold;
-        }
     </style>
 </head>
 
@@ -112,66 +84,52 @@
     <nav>
     </nav>
     <main>
-        <div class="cursos-disponiveis" id="cursos-disponiveis">
-            <div class="curso-disponivel" id="adicionar-modelo-redacao">Adicionar ao Curso: Modelo Redação Nota 1000</div>
-            <div class="curso-disponivel" id="adicionar-resumao-vest">Adicionar ao Curso: Nectar Supremo Resumão VEST 2024</div>
+        <div class="curso" id="modelo-redacao">
+            <h2>Modelo Redação Nota 1000</h2>
+            <div class="detalhes">
+                <p>Modelo Redação Nota 1000...</p>
+                <a href="https://drive.google.com/file/d/19CRx01w-KEd8xbCA2Pq2uJqQFCtH4Ngo/view?usp=drivesdk"
+                    target="_blank">Download</a>
+            </div>
         </div>
-        <div class="cursos-adquiridos" id="cursos-adquiridos">
-            <p>Cursos Adquiridos:</p>
-            <ul id="cursos-lista">
-            </ul>
+        <div class="curso" id="resumao-vest">
+            <h2>Nectar Supremo Resumão VEST 2024</h2>
+            <div class="detalhes">
+                <p>Nectar Supremo Resumão VEST 2024...</p>
+                <a href="https://drive.google.com/drive/folders/1qImbJTW2RVZmsYQE_P4t1iSiza9r2I8l?usp=sharing"
+                    target="_blank">Download</a>
+            </div>
         </div>
     </main>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const username = localStorage.getItem('username');
             document.getElementById("username").innerText = username;
+			
+			document.addEventListener('DOMContentLoaded', function () {
+    const lastVisitedPage = localStorage.getItem('lastVisitedPage');
+    if (lastVisitedPage !== 'index.html') {
+        window.location.href = 'index.html'; // Redireciona para a página inicial se a última página visitada não foi 'index.html'
+    }
+});
 
-            const cursosAdquiridos = JSON.parse(localStorage.getItem('cursosAdquiridos')) || [];
-
-            const adicionarCurso = (curso) => {
-                if (!cursosAdquiridos.includes(curso)) {
-                    cursosAdquiridos.push(curso);
-                    localStorage.setItem('cursosAdquiridos', JSON.stringify(cursosAdquiridos));
-                    atualizarCursosAdquiridos();
-                }
-            };
-
-            const removerCurso = (curso) => {
-                const index = cursosAdquiridos.indexOf(curso);
-                if (index !== -1) {
-                    cursosAdquiridos.splice(index, 1);
-                    localStorage.setItem('cursosAdquiridos', JSON.stringify(cursosAdquiridos));
-                    atualizarCursosAdquiridos();
-                }
-            };
-
-            const atualizarCursosAdquiridos = () => {
-                const cursosLista = document.getElementById('cursos-lista');
-                cursosLista.innerHTML = '';
-                if (cursosAdquiridos.length > 0) {
-                    cursosAdquiridos.forEach(curso => {
-                        const li = document.createElement('li');
-                        li.innerText = curso;
-                        cursosLista.appendChild(li);
-                    });
-                } else {
-                    const p = document.createElement('p');
-                    p.innerText = 'Nenhum curso adquirido.';
-                    cursosLista.appendChild(p);
-                }
-            };
-
-            document.getElementById('adicionar-modelo-redacao').addEventListener('click', function () {
-                adicionarCurso('Modelo Redação Nota 1000');
-            });
-
-            document.getElementById('adicionar-resumao-vest').addEventListener('click', function () {
-                adicionarCurso('Nectar Supremo Resumão VEST 2024');
-            });
-
-            atualizarCursosAdquiridos();
+    fetch('https://pastebin.com/raw/E8xkGXKq')
+        .then(response => response.json())
+        .then(data => {
+            if (data.includes(username)) {
+                document.getElementById('modelo-redacao').style.display = 'block';
+                document.getElementById('modelo-redacao').addEventListener('click', function () {
+                    this.querySelector('.detalhes').style.display = 'block';
+                });
+                document.getElementById('resumao-vest').style.display = 'block';
+                document.getElementById('resumao-vest').addEventListener('click', function () {
+                    this.querySelector('.detalhes').style.display = 'block';
+                });
+            } else {
+                document.body.innerHTML += '<p>Você não tem acesso a nenhum curso.</p>';
+            }
         });
+});
 
         const users = [
             { username: 'thiago', password: '123456' },
@@ -179,12 +137,18 @@
             // Adicione mais usuários e senhas conforme necessário
         ];
 
-        setTimeout(() => {
-            const username = localStorage.getItem('username');
-            if (!users.some(user => user.username === username)) {
-                window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
-            }
-        }, 1000); // Atraso de 1 segundo
+        const username = localStorage.getItem('username');
+        if (!users.some(user => user.username === username)) {
+            window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
+        }
+		
+		    document.getElementById('modelo-redacao').addEventListener('click', function () {
+        this.querySelector('.detalhes').style.display = 'block';
+    });
+
+    document.getElementById('resumao-vest').addEventListener('click', function () {
+        this.querySelector('.detalhes').style.display = 'block';
+    });
     </script>
 </body>
 

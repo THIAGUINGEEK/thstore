@@ -389,6 +389,8 @@ const users = [
     // Adicione mais usuários e senhas conforme necessário
 ];
 
+localStorage.setItem('lastVisitedPage', 'index.html'); // Substitua 'Sortear.html' pelo nome da página atual
+
 function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
