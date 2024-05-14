@@ -82,32 +82,19 @@ h1 {
 <div class="container">
     <button id="adminBtn">Admin</button>
     <h1>TH SHOP</h1>
-    <div class="products">
-        <div class="product">
-            <img src="product1.jpg" alt="Product 1">
-            <h2>Product 1</h2>
-            <p class="price">$10</p>
-            <p class="stock">In Stock: 5</p>
-            <button class="buyBtn">Buy</button>
-        </div>
-        <div class="product">
-            <img src="product2.jpg" alt="Product 2">
-            <h2>Product 2</h2>
-            <p class="price">$20</p>
-            <p class="stock">In Stock: 0</p>
-            <button class="buyBtn" disabled>Buy</button>
-        </div>
+    <div class="products" id="products">
+        <!-- Os produtos serão inseridos aqui via JavaScript -->
     </div>
 </div>
 
 <div id="loginPopup" class="popup">
     <div class="popup-content">
         <h2>Login</h2>
-        <form action="admin.html">
+        <form id="loginForm">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" required><br>
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required><br>
             <button type="submit">Login</button>
         </form>
     </div>
@@ -124,6 +111,32 @@ document.getElementById("loginPopup").addEventListener("click", function(event) 
         document.getElementById("loginPopup").style.display = "none";
     }
 });
+
+// Simulação de produtos
+const products = [
+    { name: "Product 1", price: 10, stock: 5 },
+    { name: "Product 2", price: 20, stock: 0 }
+];
+
+// Função para exibir os produtos na página
+function displayProducts() {
+    const productsContainer = document.getElementById("products");
+    productsContainer.innerHTML = "";
+    products.forEach(product => {
+        const productElement = document.createElement("div");
+        productElement.classList.add("product");
+        productElement.innerHTML = `
+            <img src="https://via.placeholder.com/250" alt="${product.name}">
+            <h2>${product.name}</h2>
+            <p class="price">$${product.price}</p>
+            <p class="stock">In Stock: ${product.stock}</p>
+            <button class="buyBtn" ${product.stock === 0 ? 'disabled' : ''}>Buy</button>
+        `;
+        productsContainer.appendChild(productElement);
+    });
+}
+
+displayProducts(); // Exibir os produtos inicialmente
 </script>
 </body>
 </html>
