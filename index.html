@@ -2,141 +2,353 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TH SHOP</title>
+<title>TH Shop</title>
+
 <style>
-/* CSS para o index.html */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    header {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+    h2 {
+        margin-top: 30px;
+    }
+    .product {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    .product img {
+        max-width: 100%;
+        height: auto;
+    }
+    .price {
+        font-size: 1.2em;
+        color: #333;
+        text-decoration: line-through;
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .discount {
+        font-size: 1.5em;
+        color: red;
+    }
+    .buy-btn {
+        background-color: #3498db;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none;
+        z-index: 999;
+        text-align: center;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        z-index: 998;
+    }
+    .popup h2 {
+        margin-bottom: 20px;
+    }
+    .payment-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .payment-form label {
+        margin-top: 10px;
+    }
+.payment-form input {
+    padding: 8px;
+    margin-top: 5px;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #ccc;
 }
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-h1 {
-    text-align: center;
-}
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-.product {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-.product img {
-    max-width: 100%;
-    border-radius: 5px;
-}
-.price {
-    font-weight: bold;
-}
-.stock {
-    color: #888;
-}
-.buyBtn {
+    .payment-form select {
+        padding: 5px;
+        margin-top: 5px;
+        width: 200px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+    }
+	
+.payment-form button {
+    margin-top: 20px;
+    padding: 8px 15px;
     background-color: #3498db;
-    color: #fff;
-    padding: 5px 10px;
+    color: white;
     border: none;
     border-radius: 3px;
     cursor: pointer;
-}
-.buyBtn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
-.popup {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+}
+	
+.content-link {
+    color: #3498db; /* Azul claro */
+    cursor: pointer;
+    text-decoration: none; /* Remover sublinhado padrão */
+    transition: color 0.3s; /* Adicionar transição suave na mudança de cor */
 }
 
-.popup-content {
-    background-color: #fff;
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.content-link:hover {
+    color: #2980b9; /* Azul mais escuro ao passar o mouse */
 }
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #333;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.invert-colors {
+        filter: invert(100%);
+    }
+
 </style>
 </head>
 <body>
-<div class="container">
-    <button id="adminBtn">Admin</button>
-    <h1>TH SHOP</h1>
-    <div class="products" id="products">
-        <!-- Os produtos serão inseridos aqui via JavaScript -->
-    </div>
+    <header>
+        <img class="invert-colors" src="th.png" alt="TH Shop">
+    </header>
+    <div class="container">
+        <div class="product">
+            <h2>Modelo de Redação Enem 900+</h2>
+            <p>
+                Descrição: Um modelo de redação que somente ao preencher você consegue 900+
+            </p>
+            <p>
+                <span class="price">R$20,00</span>
+                <span class="discount">R$5,00 (-75%)</span>
+            </p>
+            <button class="buy-btn" onclick="showPopup('Redação Estilo Enem', 'R$20,00')">Comprar</button>
+			
+			
+        </div>
+		
+		
+		
+		
+		
+<div class="popup" id="contentPopup">
+    <span class="close-btn" onclick="hideContentPopup()">&times;</span>
+    <h2 id="contentTitle"></h2>
+    <p id="contentDescription"></p>
 </div>
 
-<div id="loginPopup" class="popup">
-    <div class="popup-content">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required><br>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required><br>
-            <button type="submit">Login</button>
+        <div class="product">
+            <h2>Nectar Supremo - ENEM, UERJ</h2>
+		<p>
+			Descrição: O Nectar supremo pra você estudar para o ENEM e UERJ. Mais de 500 questões também para você praticar.
+			Resumos disponíveis:
+			<ul>
+				<li>Biologia (+100 páginas) - <span class="content-link" onclick="showContentPopup('Biologia')">Clique para ver conteúdos</span></li>
+				<li>Física (+50 páginas) - <span class="content-link" onclick="showContentPopup('Física')">Clique para ver conteúdos</span></li>
+				<li>Química (+60 páginas) - <span class="content-link" onclick="showContentPopup('Química')">Clique para ver conteúdos</span></li>
+				<li>Geografia (63 páginas) - <span class="content-link" onclick="showContentPopup('Geografia')">Clique para ver conteúdos</span></li>
+				<li>História (77 páginas) - <span class="content-link" onclick="showContentPopup('História')">Clique para ver conteúdos</span></li>
+				<li>Filosofia (24 páginas) - <span class="content-link" onclick="showContentPopup('Filosofia')">Clique para ver conteúdos</span></li>
+				<li>Sociologia (12 páginas) - <span class="content-link" onclick="showContentPopup('Sociologia')">Clique para ver conteúdos</span></li>
+				<li>Artes (40 páginas) - <span class="content-link" onclick="showContentPopup('Artes')">Clique para ver conteúdos</span></li>
+				<li>Literatura (+20 páginas) - <span class="content-link" onclick="showContentPopup('Literatura')">Clique para ver conteúdos</span></li>
+				<li>Português (15 páginas) - <span class="content-link" onclick="showContentPopup('Português')">Clique para ver conteúdos</span></li>
+				<li>Matemática (+19 páginas) - <span class="content-link" onclick="showContentPopup('Matemática')">Clique para ver conteúdos</span></li>
+				<li>Redação - <span class="content-link" onclick="showContentPopup('Redação')">Clique para ver conteúdos</span></li>
+			</ul>
+		</p>
+            <p>
+                <span class="price">R$35,00</span>
+                <span class="discount">R$17,89 (-49%)</span>
+            </p>
+            <button class="buy-btn" onclick="showPopup('Resumão Completo ENEM, UERJ', 'R$35,00')">Comprar</button>
+        </div>
+    </div>
+    <div class="overlay" onclick="hidePopup()"></div>
+    <div class="popup" id="productPopup">
+        <h2 id="popupTitle"></h2>
+        <p id="popupDescription"></p>
+        <p id="popupPrice"></p>
+        <form class="payment-form" id="paymentForm">
+            <label for="email">Nome Completo:</label>
+            <input type="email" name="email" id="email" required>
+            <label for="instagram">Instagram:</label>
+            <input type="text" name="instagram" id="instagram" required>
+            <label for="numero">Telefone:</label>
+            <input type="text" name="numero" id="numero" required>
+            <label for="paymentMethod">Método de Pagamento:</label>
+            <select name="paymentMethod" id="paymentMethod">
+                <option value="pix">Pix</option>
+                <option value="dinheiro">Dinheiro</option>
+            </select>
+            <button type="button" onclick="confirmPayment()">Confirmar Pagamento</button>
         </form>
     </div>
-</div>
+    <div class="popup" id="contentPopup" style="display: none;">
+        <h2>Conteúdos da Matéria</h2>
+        <p id="contentDescription"></p>
+    </div>
+    <script>
+	
+		function sendEmail() {
+			const email = document.getElementById('email').value;
+			const instagram = document.getElementById('instagram').value;
+			const numero = document.getElementById('numero').value;
+			const produto = document.getElementById('popupTitle').innerText;
 
-<script>
-// JavaScript para o index.html
-document.getElementById("adminBtn").addEventListener("click", function() {
-    document.getElementById("loginPopup").style.display = "block";
-});
+			var xhr = new XMLHttpRequest();
+			var url = "https://formspree.io/f/mayrkdor";
 
-document.getElementById("loginPopup").addEventListener("click", function(event) {
-    if (event.target == document.getElementById("loginPopup")) {
-        document.getElementById("loginPopup").style.display = "none";
-    }
-});
+			xhr.open("POST", url);
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					alert("Email enviado com sucesso!");
+				} else {
+					alert("Falha ao enviar o email.");
+				}
+			};
 
-// Simulação de produtos
-const products = [
-    { name: "Product 1", price: 10, stock: 5 },
-    { name: "Product 2", price: 20, stock: 0 }
-];
+			const message = `Produto ${produto} foi comprado por ${email} (${instagram})`;
+			const data = `email=throdrigf@gmail.com&subject=Compra Realizada&message=${encodeURIComponent(message)}&numero=${numero}`;
+			
+			xhr.send(data);
+		}
+		
+        function showPopup(title, price) {
+            document.getElementById('popupTitle').innerText = title;
+            document.getElementById('popupPrice').innerText = `Preço: ${price}`;
+            document.getElementById('popupDescription').innerText = "Descrição: ";
+            document.querySelector('.overlay').style.display = 'block';
+            document.getElementById('productPopup').style.display = 'block';
+        }
 
-// Função para exibir os produtos na página
-function displayProducts() {
-    const productsContainer = document.getElementById("products");
-    productsContainer.innerHTML = "";
-    products.forEach(product => {
-        const productElement = document.createElement("div");
-        productElement.classList.add("product");
-        productElement.innerHTML = `
-            <img src="https://via.placeholder.com/250" alt="${product.name}">
-            <h2>${product.name}</h2>
-            <p class="price">$${product.price}</p>
-            <p class="stock">In Stock: ${product.stock}</p>
-            <button class="buyBtn" ${product.stock === 0 ? 'disabled' : ''}>Buy</button>
-        `;
-        productsContainer.appendChild(productElement);
-    });
-}
+        function hidePopup() {
+            document.querySelector('.overlay').style.display = 'none';
+            document.getElementById('productPopup').style.display = 'none';
+        }
 
-displayProducts(); // Exibir os produtos inicialmente
-</script>
+        function confirmPayment() {
+            const email = document.getElementById('email').value;
+            const instagram = document.getElementById('instagram').value;
+            const numero = document.getElementById('numero').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            const produto = document.getElementById('popupTitle').innerText;
+
+            if (paymentMethod === 'pix' && email && instagram && numero) {
+				sendEmail();
+				
+                redirectToPayment('pix', '5', produto);
+				
+            } else if (paymentMethod === 'dinheiro' && email && instagram && numero) {
+                redirectToPayment('dinheiro', '17-89', produto);
+				sendEmail();
+            } else if (paymentMethod === 'dinheiro') {
+                const mensagem = encodeURIComponent(`Olá, solicitei a compra de ${produto} no método de pagamento Dinheiro.`);
+                window.open(`https://api.whatsapp.com/send?phone=5521997770936&text=${mensagem}`);
+				sendEmail();
+            } else {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+            }
+        }
+		
+
+		
+		
+
+        function redirectToPayment(method, price, produto) {
+            window.location.href = `pagamento.html?method=${method}&price=${price}&produto=${produto}`;
+        }
+		
+		function hideContentPopup() {
+			document.querySelector('.overlay').style.display = 'none';
+			document.getElementById('contentPopup').style.display = 'none';
+		}
+
+        function showContentPopup(materia) {
+            let conteudo = '';
+
+            switch (materia) {
+                case 'Biologia':
+                    conteudo = `Bioquímica\nBotânica\nCitologia\nEmbriologia\nEcologia\nEvolução\nFisiologia\nGenética\nHistologia\nMicrobiologia\nZoologia`;
+                    break;
+                case 'Física':
+                    conteudo = `Calorimetria\nCinemática\nDinâmica\nEletrostática\nEnergia\nEstática\nGravitação Universal\nMecânica Impulsiva\nOndulatória\nTermodinâmica\nTermometria e Dilatometria\nFórmulas de Física`;
+                    break;
+                case 'Geografia':
+                    conteudo = `Agricultura\nCartografia\nComércio e Transportes\nElementos e Fatores do clima\nGlobalização\nHidrografia\nIndustrialização\nLitosfera\nPopulação\nRecursos Energéticos\nRegionalização\nRelevo do Brasil\nSolos\nUrbanização\nVegetação`;
+                    break;
+                case 'História':
+                    conteudo = `A Era das Revoluções\nAmérica e Brasil na Época Colonial\nBrasil dos anos 80 e 2000\nBrasil Império\nBrasil República\nEUA e Europa no século XIX\nGuerras Mundiais\nHistória Antiga\nIdade Média\nIdade Moderna\nMundo Bipolar\nRegime Militar`;
+                    break;
+                case 'Filosofia':
+                    conteudo = `Epistemologia\nFilosofia Moral\nFilosofia Política`;
+                    break;
+                case 'Sociologia':
+                    conteudo = `Introdução e Origem\nConceitos Fundamentais`;
+                    break;
+                case 'Artes':
+                    conteudo = `Arte Clássica\nArte Moderna\nPré-História`;
+                    break;
+				case 'Química':
+					conteudo = 'Cinética Química, Dispersões, Eletroquímica, Equilíbrio Químico, Estudo Físico dos Gases, Ligações Químicas, Matéria e Energia, Química Ambiental, Química Inorgânica, Química Orgânica, Transformações Químicas, Termoquímica';
+					break;
+                case 'Literatura':
+                    conteudo = `Escolas Literárias\nLiteratura no Brasil Colônia\nLiteratura no Brasil Império\nLiteratura no Brasil República`;
+                    break;
+                case 'Português':
+                    conteudo = `Gramática Geral`;
+                    break;
+                case 'Matemática':
+                    conteudo = `Estatística\nFunção\nGeometria Plana\nPorcentagem\nRazão e Proporção\nRedação:\nCartilha de Redação Nota 1000\nDiversos Repertórios Enem de acordo com Eixo Temático\nModelo Redação UERJ\nEnriquecimento de vocabulário, conectivos textuais, estratégias, etc.`;
+                    break;
+				case 'Redação':
+					conteudo = `Cartilha de Redação Nota 1000\nDiversos Repertórios Enem de acordo com Eixo Temático\nModelo Redação UERJ\nEnriquecimento de vocabulário, conectivos textuais, estratégias, etc.`;
+					break;
+            }
+
+            document.getElementById('contentDescription').innerText = conteudo;
+            document.querySelector('.overlay').style.display = 'block';
+            document.getElementById('contentPopup').style.display = 'block';
+        }
+    </script>
 </body>
 </html>

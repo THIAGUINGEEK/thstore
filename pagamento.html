@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagamento</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+        margin-top: 50px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    a {
+        display: inline-block;
+        background-color: #25d366;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    a:hover {
+        background-color: #128c7e;
+    }
+</style>
+</head>
+<body>
+<h1>Confirmação de Pagamento</h1>
+
+<!-- Lógica para exibir QR Code ou WhatsApp -->
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const paymentMethod = urlParams.get('method');
+    const price = urlParams.get('price');
+	const produto = urlParams.get('produto');
+
+    if (paymentMethod === 'pix') {
+        document.write(`<img src="qrcode_${price}.png" alt="QR Code Pix">`);
+    } else if (paymentMethod === 'dinheiro') {
+		const mensagem = encodeURIComponent(`Olá, solicitei a compra de ${produto} no método de pagamento Dinheiro.`);
+        document.write(`<a href="https://api.whatsapp.com/send?phone=5521997770936&text=${mensagem}" target="_blank"><img src="https://imagepng.org/wp-content/uploads/2017/08/whatsapp-icone-1.png" alt="WhatsApp" style="width: 20px; vertical-align: middle;"> Nos envie uma mensagem para solicitar a compra por esse método de pagamento</a>`);
+    } else {
+        document.write('Método de pagamento inválido');
+    }
+</script>
+
+</body>
+</html>
