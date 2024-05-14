@@ -79,7 +79,7 @@
 
 <body>
     <header>
-        <h1>Olá, usuário!</h1>
+        <h1>Olá, <span id="username"></span>!</h1>
     </header>
     <nav>
     </nav>
@@ -102,6 +102,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const username = localStorage.getItem('username');
+			
+			document.getElementById("username").innerText = username;
 
             fetch('modeloredacao.txt')
                 .then(response => response.text())
@@ -130,10 +132,16 @@
             }
         });
 		
-		const username = localStorage.getItem('username');
-		if (typeof username === 'undefined') {
-			window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
-		}
+const users = [
+    { username: 'thiago', password: '123456' },
+    { username: 'teste', password: 'teste123' },
+    // Adicione mais usuários e senhas conforme necessário
+];
+
+const username = localStorage.getItem('username');
+if (!users.some(user => user.username === username)) {
+    window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
+}
     </script>
 </body>
 
