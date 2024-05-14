@@ -102,8 +102,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const username = localStorage.getItem('username');
-			
-			document.getElementById("username").innerText = username;
+            
+            if (!username) {
+                window.location.href = 'index.html'; // Redireciona para a página de login se o nome de usuário não estiver definido
+                return; // Interrompe a execução do código restante
+            }
+
+            document.getElementById("username").innerText = username;
 
             fetch('modeloredacao.txt')
                 .then(response => response.text())
@@ -131,19 +136,19 @@
                 document.body.innerHTML += '<p>Você não tem acesso a nenhum curso.</p>';
             }
         });
-		
-const users = [
-    { username: 'thiago', password: '123456' },
-    { username: 'teste', password: 'teste123' },
-    // Adicione mais usuários e senhas conforme necessário
-];
 
-setTimeout(() => {
-    const username = localStorage.getItem('username');
-    if (!users.some(user => user.username === username)) {
-        window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
-    }
-}, 1000); // Atraso de 1 segundo
+        const users = [
+            { username: 'thiago', password: '123456' },
+            { username: 'teste', password: 'teste123' },
+            // Adicione mais usuários e senhas conforme necessário
+        ];
+
+        setTimeout(() => {
+            const username = localStorage.getItem('username');
+            if (!users.some(user => user.username === username)) {
+                window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
+            }
+        }, 1000); // Atraso de 1 segundo
     </script>
 </body>
 
