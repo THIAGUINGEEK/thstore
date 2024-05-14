@@ -140,30 +140,133 @@
     cursor: pointer;
 }
 
+.notes-image {
+    width: 300px; /* Defina o tamanho desejado */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block;
+    margin-top: 10px; /* Adiciona um espaço acima da imagem */
+}
+
 .invert-colors {
         filter: invert(100%);
     }
+	
+.instagram-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
+	
+.icons-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+}
+
+.icons-container img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.login-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.login-icon:hover {
+    transform: scale(1.1);
+}
+
+.login-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.login-content {
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.login-content h2 {
+    margin-bottom: 20px;
+}
+
+.login-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-content label {
+    margin-top: 10px;
+}
+
+.login-content input {
+    padding: 8px;
+    margin-top: 5px;
+    width: 200px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.login-content button {
+    margin-top: 20px;
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
 </style>
 </head>
 <body>
     <header>
         <img class="invert-colors" src="th.png" alt="TH Shop">
+		<div class="icons-container">
+			<img src="login.png" alt="Login" class="login-icon" onclick="showLoginPopup()">
+			<img src="cookies.png" alt="Cookies" class="cookie-icon" onclick="showCookiesPopup()">
+		</div>
+</div>
     </header>
     <div class="container">
-        <div class="product">
-            <h2>Modelo de Redação Enem 900+</h2>
-            <p>
-                Descrição: Um modelo de redação que somente ao preencher você consegue 900+
-            </p>
-            <p>
-                <span class="price">R$20,00</span>
-                <span class="discount">R$5,00 (-75%)</span>
-            </p>
-            <button class="buy-btn" onclick="showPopup('Redação Estilo Enem', 'R$20,00')">Comprar</button>
-			
-			
-        </div>
+		<div class="product">
+			<h2>Modelo de Redação Enem 900+</h2>
+			<p>
+
+				Desenvolvi meticulosamente este modelo de redação ao longo de dois dias, garantindo que ele se encaixe perfeitamente em qualquer tema proposto, tornando a memorização das ideias simples e eficaz. Com essa abordagem cuidadosa, obtive uma pontuação impressionante de 960 pontos no Enem, e estou confiante de que qualquer pessoa que utilizar esse modelo também poderá alcançar resultados excepcionais.
+			</p>
+			<p>
+				<span class="price">R$20,00</span>
+				<span class="discount">R$5,00 (-75%)</span>
+			</p>
+			<button class="buy-btn" onclick="showPopup('Redação Estilo Enem', 'R$5,00 (75% OFF)')">Comprar</button>
+
+			<!-- Adicione a imagem notas.jpeg abaixo do texto -->
+			<img class="notes-image" src="notas.jpeg" alt="Notas do modelo de redação">
+		</div>
 		
 		
 		
@@ -173,6 +276,20 @@
     <span class="close-btn" onclick="hideContentPopup()">&times;</span>
     <h2 id="contentTitle"></h2>
     <p id="contentDescription"></p>
+</div>
+
+<div class="login-popup" id="loginPopup">
+    <div class="login-content">
+        <span class="close-btn" onclick="hideLoginPopup()">&times;</span>
+        <h2>Login</h2>
+        <form>
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+    </div>
 </div>
 
         <div class="product">
@@ -199,7 +316,7 @@
                 <span class="price">R$35,00</span>
                 <span class="discount">R$17,89 (-49%)</span>
             </p>
-            <button class="buy-btn" onclick="showPopup('Resumão Completo ENEM, UERJ', 'R$35,00')">Comprar</button>
+            <button class="buy-btn" onclick="showPopup('Resumão Completo ENEM, UERJ', 'R$17,89 (49% OFF)')">Comprar</button>
         </div>
     </div>
     <div class="overlay" onclick="hidePopup()"></div>
@@ -226,6 +343,11 @@
         <h2>Conteúdos da Matéria</h2>
         <p id="contentDescription"></p>
     </div>
+	
+	  <a href="https://www.instagram.com/thixgor/" target="_blank" class="instagram-btn">
+        <img src="instagram-icon.png" alt="Instagram" width="50" height="50">
+    </a>
+
     <script>
 	
 		function sendEmail() {
@@ -252,6 +374,42 @@
 			
 			xhr.send(data);
 		}
+		
+function showLoginPopup() {
+    document.getElementById('loginPopup').style.display = 'block';
+}
+
+function hideLoginPopup() {
+    document.getElementById('loginPopup').style.display = 'none';
+}
+
+const users = [
+    { username: 'thiago', password: '123456' },
+    { username: 'teste', password: 'teste123' },
+    // Adicione mais usuários e senhas conforme necessário
+];
+
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const user = users.find(user => user.username === username && user.password === password);
+
+    if (user) {
+        // Usuário autenticado com sucesso
+        alert('Login com sucesso!');
+        hideLoginPopup();
+        window.location.href = 'user.html'; // Redireciona para a página de login se o usuário não estiver autenticado
+
+    } else {
+        // Usuário ou senha incorretos
+        alert('Falha na autenticação.');
+    }
+}
+
+function showCookiesPopup() {
+    alert("Este site usa cookies para garantir a melhor experiência possível.");
+}
 		
         function showPopup(title, price) {
             document.getElementById('popupTitle').innerText = title;

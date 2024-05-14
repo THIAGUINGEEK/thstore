@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Cursos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        .curso {
+            background-color: #fff;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .curso:hover {
+            background-color: #f9f9f9;
+        }
+
+        .curso h2 {
+            margin-top: 0;
+        }
+
+        .detalhes {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .detalhes p {
+            margin: 0;
+        }
+
+        .detalhes a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Olá, usuário!</h1>
+    </header>
+    <nav>
+    </nav>
+    <main>
+        <div class="curso" id="modelo-redacao">
+            <h2>Modelo Redação Nota 1000</h2>
+            <div class="detalhes">
+                <p>Modelo Redação Nota 1000...</p>
+                <a href="https://drive.google.com/file/d/19CRx01w-KEd8xbCA2Pq2uJqQFCtH4Ngo/view?usp=drivesdk" target="_blank">Download</a>
+            </div>
+        </div>
+        <div class="curso" id="resumao-vest">
+            <h2>Nectar Supremo Resumão VEST 2024</h2>
+            <div class="detalhes">
+                <p>Nectar Supremo Resumão VEST 2024...</p>
+                <a href="https://drive.google.com/drive/folders/1qImbJTW2RVZmsYQE_P4t1iSiza9r2I8l?usp=sharing" target="_blank">Download</a>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const username = localStorage.getItem('username');
+
+            fetch('modeloredacao.txt')
+                .then(response => response.text())
+                .then(text => {
+                    if (text.includes(username)) {
+                        document.getElementById('modelo-redacao').style.display = 'block';
+                        document.getElementById('modelo-redacao').addEventListener('click', function () {
+                            this.querySelector('.detalhes').style.display = 'block';
+                        });
+                    }
+                });
+
+            fetch('resumaovest.txt')
+                .then(response => response.text())
+                .then(text => {
+                    if (text.includes(username)) {
+                        document.getElementById('resumao-vest').style.display = 'block';
+                        document.getElementById('resumao-vest').addEventListener('click', function () {
+                            this.querySelector('.detalhes').style.display = 'block';
+                        });
+                    }
+                });
+
+            if (!document.getElementById('modelo-redacao').style.display && !document.getElementById('resumao-vest').style.display) {
+                document.body.innerHTML += '<p>Você não tem acesso a nenhum curso.</p>';
+            }
+        });
+		
+		const username = localStorage.getItem('username');
+		if (typeof username === 'undefined') {
+			window.location.href = 'index.html'; // Redireciona para a página de login se o usuário não estiver autenticado
+		}
+    </script>
+</body>
+
+</html>
