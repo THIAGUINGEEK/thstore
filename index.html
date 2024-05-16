@@ -94,13 +94,13 @@
     .payment-form label {
         margin-top: 10px;
     }
-.payment-form input {
-    padding: 8px;
-    margin-top: 5px;
-    width: 100%;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-}
+    .payment-form input {
+        padding: 8px;
+        margin-top: 5px;
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+    }
     .payment-form select {
         padding: 5px;
         margin-top: 5px;
@@ -108,403 +108,324 @@
         border-radius: 3px;
         border: 1px solid #ccc;
     }
-	
-.payment-form button {
-    margin-top: 20px;
-    padding: 8px 15px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    width: 100%;
-}
-	
-.content-link {
-    color: #3498db; /* Azul claro */
-    cursor: pointer;
-    text-decoration: none; /* Remover sublinhado padrão */
-    transition: color 0.3s; /* Adicionar transição suave na mudança de cor */
-}
-
-.content-link:hover {
-    color: #2980b9; /* Azul mais escuro ao passar o mouse */
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #333;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.notes-image {
-    width: 300px; /* Defina o tamanho desejado */
-    height: auto; /* Mantém a proporção da imagem */
-    display: block;
-    margin-top: 10px; /* Adiciona um espaço acima da imagem */
-}
-
-.invert-colors {
+    .payment-form button {
+        margin-top: 20px;
+        padding: 8px 15px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        width: 100%;
+    }
+    .content-link {
+        color: #3498db;
+        cursor: pointer;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .content-link:hover {
+        color: #2980b9;
+    }
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #333;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .notes-image {
+        width: 300px;
+        height: auto;
+        display: block;
+        margin-top: 10px;
+    }
+    .invert-colors {
         filter: invert(100%);
     }
-	
-.instagram-btn {
+    .instagram-btn {
         position: fixed;
         bottom: 20px;
         right: 20px;
         z-index: 9999;
     }
-	
-.icons-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-}
-
-.icons-container img {
-    width: 30px;
-    height: 30px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.login-icon {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.login-icon:hover {
-    transform: scale(1.1);
-}
-
-.login-popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-}
-
-.login-content {
-    text-align: center;
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-}
-
-.login-content h2 {
-    margin-bottom: 20px;
-}
-
-.login-content form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-content label {
-    margin-top: 10px;
-}
-
-.login-content input {
-    padding: 8px;
-    margin-top: 5px;
-    width: 200px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-}
-
-.login-content button {
-    margin-top: 20px;
-    padding: 8px 15px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
+    .icons-container {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+    }
+    .icons-container img {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .login-icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    .login-icon:hover {
+        transform: scale(1.1);
+    }
+    .login-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+    .login-content {
+        text-align: center;
+    }
+    .login-content h2 {
+        margin-bottom: 20px;
+    }
+    .login-content form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .login-content label {
+        margin-top: 10px;
+    }
+    .login-content input {
+        padding: 8px;
+        margin-top: 5px;
+        width: 200px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+    }
+    .login-content button {
+        margin-top: 20px;
+        padding: 8px 15px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
 </style>
 </head>
 <body>
     <header>
         <img class="invert-colors" src="th.png" alt="TH Shop">
-		<div class="icons-container">
-			<img src="login.png" alt="Login" class="login-icon" onclick="showLoginPopup()">
-			<img src="cookies.png" alt="Cookies" class="cookie-icon" onclick="showCookiesPopup()">
-		</div>
-</div>
+        <div class="icons-container">
+            <img src="login.png" alt="Login" class="login-icon" onclick="showLoginPopup()">
+            <img src="cookies.png" alt="Cookies" class="cookie-icon" onclick="showCookiesPopup()">
+        </div>
     </header>
     <div class="container">
-		<div class="product">
-			<h2>Modelo de Redação Enem 900+</h2>
-			<p>
-
-				Desenvolvi meticulosamente este modelo de redação ao longo de dois dias, garantindo que ele se encaixe perfeitamente em qualquer tema proposto, tornando a memorização das ideias simples e eficaz. Consegui 960 pontos no Enem com ela, e estou confiante de que qualquer pessoa que utilizar esse modelo também poderá alcançar resultados excepcionais.
-			</p>
-			<p>
-				<span class="price">R$20,00</span>
-				<span class="discount">R$10,00 (-50%)</span>
-			</p>
-			<button class="buy-btn" onclick="showPopup('Redação Estilo Enem', 'R$10,00 (75% OFF)')">Comprar</button>
-
-			<!-- Adicione a imagem notas.jpeg abaixo do texto -->
-			<img class="notes-image" src="notas.jpeg" alt="Notas do modelo de redação">
-		</div>
-		
-		
-		
-		
-		
-<div class="popup" id="contentPopup">
-    <span class="close-btn" onclick="hideContentPopup()">&times;</span>
-    <h2 id="contentTitle"></h2>
-    <p id="contentDescription"></p>
-</div>
-
-<div class="login-popup" id="loginPopup">
-    <div class="login-content">
-        <span class="close-btn" onclick="hideLoginPopup()">&times;</span>
-        <h2>Login</h2>
-        <form>
-            <label for="username">Usuário:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="button" onclick="login()">Login</button>
-        </form>
-    </div>
-</div>
-
+        <div class="product">
+            <h2>Modelo de Redação Enem 900+</h2>
+            <p>Desenvolvi meticulosamente este modelo de redação ao longo de dois dias, garantindo que ele se encaixe perfeitamente em qualquer tema proposto, tornando a memorização das ideias simples e eficaz. Consegui 960 pontos no Enem com ela, e estou confiante de que qualquer pessoa que utilizar esse modelo também poderá alcançar resultados excepcionais.</p>
+            <p>
+                <span class="price">R$20,00</span>
+                <span class="discount">R$10,00 (-50%)</span>
+            </p>
+            <button class="buy-btn" onclick="showPopup('Redação Estilo Enem', 'R$10,00 (75% OFF)')">Comprar</button>
+            <img class="notes-image" src="notas.jpeg" alt="Notas do modelo de redação">
+        </div>
         <div class="product">
             <h2>Nectar Supremo - ENEM, UERJ</h2>
-		<p>
-			Descrição: O Nectar supremo pra você estudar para o ENEM e UERJ. Mais de 500 questões também para você praticar.
-			Resumos disponíveis:
-			<ul>
-				<li>Biologia (+100 páginas) - <span class="content-link" onclick="showContentPopup('Biologia')">Clique para ver conteúdos</span></li>
-				<li>Física (+50 páginas) - <span class="content-link" onclick="showContentPopup('Física')">Clique para ver conteúdos</span></li>
-				<li>Química (+60 páginas) - <span class="content-link" onclick="showContentPopup('Química')">Clique para ver conteúdos</span></li>
-				<li>Geografia (63 páginas) - <span class="content-link" onclick="showContentPopup('Geografia')">Clique para ver conteúdos</span></li>
-				<li>História (77 páginas) - <span class="content-link" onclick="showContentPopup('História')">Clique para ver conteúdos</span></li>
-				<li>Filosofia (24 páginas) - <span class="content-link" onclick="showContentPopup('Filosofia')">Clique para ver conteúdos</span></li>
-				<li>Sociologia (12 páginas) - <span class="content-link" onclick="showContentPopup('Sociologia')">Clique para ver conteúdos</span></li>
-				<li>Artes (40 páginas) - <span class="content-link" onclick="showContentPopup('Artes')">Clique para ver conteúdos</span></li>
-				<li>Literatura (+20 páginas) - <span class="content-link" onclick="showContentPopup('Literatura')">Clique para ver conteúdos</span></li>
-				<li>Português (15 páginas) - <span class="content-link" onclick="showContentPopup('Português')">Clique para ver conteúdos</span></li>
-				<li>Matemática (+19 páginas) - <span class="content-link" onclick="showContentPopup('Matemática')">Clique para ver conteúdos</span></li>
-				<li>Redação - <span class="content-link" onclick="showContentPopup('Redação')">Clique para ver conteúdos</span></li>
-			</ul>
-		</p>
-            <p>
-                <span class="price">R$35,00</span>
-                <span class="discount">R$25,00 (-28%)</span>
+            <p>Descrição: O Nectar supremo pra você estudar para o ENEM e UERJ. Mais de 500 questões também para você praticar.
+                Resumos disponíveis:
+                <ul>
+                    <li>Biologia (+100 páginas) - <span class="content-link" onclick="showContentPopup('Biologia')">Clique para ver conteúdos</span></li>
+                    <li>Física (+50 páginas) - <span class="content-link" onclick="showContentPopup('Física')">Clique para ver conteúdos</span></li>
+                    <li>Química (+60 páginas) - <span class="content-link" onclick="showContentPopup('Química')">Clique para ver conteúdos</span></li>
+                    <li>Geografia (63 páginas) - <span class="content-link" onclick="showContentPopup('Geografia')">Clique para ver conteúdos</span></li>
+                    <li>História (77 páginas) - <span class="content-link" onclick="showContentPopup('História')">Clique para ver conteúdos</span></li>
+                    <li>Filosofia (24 páginas) - <span class="content-link" onclick="showContentPopup('Filosofia')">Clique para ver conteúdos</span></li>
+                    <li>Sociologia (12 páginas) - <span class="content-link" onclick="showContentPopup('Sociologia')">Clique para ver conteúdos</span></li>
+                    <li>Artes (40 páginas) - <span class="content-link" onclick="showContentPopup('Artes')">Clique para ver conteúdos</span></li>
+                    <li>Português (25 páginas) - <span class="content-link" onclick="showContentPopup('Português')">Clique para ver conteúdos</span></li>
+                    <li>Matemática (20 páginas) - <span class="content-link" onclick="showContentPopup('Matemática')">Clique para ver conteúdos</span></li>
+                </ul>
             </p>
-            <button class="buy-btn" onclick="showPopup('Resumão Completo ENEM, UERJ', 'R$25,00 (28% OFF)')">Comprar</button>
+            <button class="buy-btn" onclick="showPopup('Nectar Supremo', 'R$10,00 (50% OFF)')">Comprar</button>
         </div>
     </div>
-    <div class="overlay" onclick="hidePopup()"></div>
-    <div class="popup" id="productPopup">
-        <h2 id="popupTitle"></h2>
-        <p id="popupDescription"></p>
-        <p id="popupPrice"></p>
-        <form class="payment-form" id="paymentForm">
-            <label for="email">Nome Completo:</label>
-            <input type="email" name="email" id="email" required>
+
+    <!-- Purchase Popup -->
+    <div class="popup" id="purchase-popup">
+        <div class="close-btn" onclick="closePopup()">&times;</div>
+        <h2 id="popup-title"></h2>
+        <p id="popup-price"></p>
+        <div class="payment-form">
+            <label for="name">Nome Completo:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="phone">Telefone:</label>
+            <input type="text" id="phone" name="phone" pattern="\(\d{2}\)\s?\d{5}-?\d{4}|\d{11}" title="Formato: (21) 99777-0936 ou 21997770936" required>
             <label for="instagram">Instagram:</label>
-            <input type="text" name="instagram" id="instagram" required>
-            <label for="numero">Telefone:</label>
-            <input type="text" name="numero" id="numero" required>
-            <label for="paymentMethod">Método de Pagamento:</label>
-            <select name="paymentMethod" id="paymentMethod">
+            <input type="text" id="instagram" name="instagram" required>
+            <label for="payment-method">Método de Pagamento:</label>
+            <select id="payment-method" name="payment-method" onchange="handlePaymentMethodChange()" required>
+                <option value="" disabled selected>Selecione um método de pagamento</option>
                 <option value="pix">Pix</option>
                 <option value="dinheiro">Dinheiro</option>
             </select>
-            <button type="button" onclick="confirmPayment()">Confirmar Pagamento</button>
-        </form>
+            <div id="pix-payment" style="display: none;">
+                <img src="qr_code_pix.png" alt="QR Code para pagamento Pix">
+                <p>Chave Pix: pix@thiago-rodrigues.com</p>
+            </div>
+            <div id="cash-payment" style="display: none;">
+                <button onclick="window.open('https://api.whatsapp.com/send?phone=21997770936', '_blank')">Pagar via WhatsApp</button>
+            </div>
+            <button type="button" onclick="submitForm()">Confirmar Compra</button>
+        </div>
     </div>
-    <div class="popup" id="contentPopup" style="display: none;">
-        <h2>Conteúdos da Matéria</h2>
-        <p id="contentDescription"></p>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Content Popup -->
+    <div class="popup" id="content-popup">
+        <div class="close-btn" onclick="closeContentPopup()">&times;</div>
+        <h2>Conteúdos de <span id="content-subject"></span></h2>
+        <ul id="content-list"></ul>
     </div>
-	
-	  <a href="https://www.instagram.com/thixgor/" target="_blank" class="instagram-btn">
-        <img src="instagram-icon.png" alt="Instagram" width="50" height="50">
+    <div class="overlay" id="content-overlay"></div>
+
+    <!-- Login Popup -->
+    <div class="login-popup" id="login-popup">
+        <div class="login-content">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="overlay" id="login-overlay"></div>
+
+    <!-- Cookies Popup -->
+    <div class="popup" id="cookies-popup">
+        <div class="close-btn" onclick="closeCookiesPopup()">&times;</div>
+        <h2>Cookies</h2>
+        <p>Este site usa cookies para garantir que você tenha a melhor experiência.</p>
+        <button onclick="closeCookiesPopup()">Entendi</button>
+    </div>
+    <div class="overlay" id="cookies-overlay"></div>
+
+    <!-- Instagram Button -->
+    <a class="instagram-btn" href="https://instagram.com/rosario.turma301" target="_blank">
+        <img src="instagram.png" alt="Instagram">
     </a>
 
     <script>
-	
-		function sendEmail() {
-			const email = document.getElementById('email').value;
-			const instagram = document.getElementById('instagram').value;
-			const numero = document.getElementById('numero').value;
-			const produto = document.getElementById('popupTitle').innerText;
-
-			var xhr = new XMLHttpRequest();
-			var url = "https://formspree.io/f/mayrkdor";
-
-			xhr.open("POST", url);
-			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState === 4 && xhr.status === 200) {
-					alert("Email enviado com sucesso!");
-				} else {
-					alert("Falha ao enviar o email.");
-				}
-			};
-
-			const message = `Produto ${produto} foi comprado por ${email} (${instagram})`;
-			const data = `email=throdrigf@gmail.com&subject=Compra Realizada&message=${encodeURIComponent(message)}&numero=${numero}`;
-			
-			xhr.send(data);
-		}
-		
-function showLoginPopup() {
-    document.getElementById('loginPopup').style.display = 'block';
-}
-
-function hideLoginPopup() {
-    document.getElementById('loginPopup').style.display = 'none';
-}
-
-const users = [
-    { username: 'thiago', password: '123456' },
-    { username: 'teste', password: 'teste123' },
-    // Adicione mais usuários e senhas conforme necessário
-];
-
-localStorage.setItem('lastVisitedPage', 'index.html'); // Substitua 'Sortear.html' pelo nome da página atual
-
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    const user = users.find(user => user.username === username && user.password === password);
-
-    if (user) {
-        // Usuário autenticado com sucesso
-        alert('Login com sucesso!');
-        hideLoginPopup();
-		localStorage.setItem('username', username)
-        window.location.href = 'user.html'; // Redireciona para a página de login se o usuário não estiver autenticado
-
-    } else {
-        // Usuário ou senha incorretos
-        alert('Falha na autenticação.');
-    }
-}
-
-function showCookiesPopup() {
-    alert("Este site usa cookies para garantir a melhor experiência possível.");
-}
-		
         function showPopup(title, price) {
-            document.getElementById('popupTitle').innerText = title;
-            document.getElementById('popupPrice').innerText = `Preço: ${price}`;
-            document.getElementById('popupDescription').innerText = "Descrição: ";
-            document.querySelector('.overlay').style.display = 'block';
-            document.getElementById('productPopup').style.display = 'block';
+            document.getElementById('popup-title').textContent = title;
+            document.getElementById('popup-price').textContent = price;
+            document.getElementById('purchase-popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
         }
 
-        function hidePopup() {
-            document.querySelector('.overlay').style.display = 'none';
-            document.getElementById('productPopup').style.display = 'none';
+        function closePopup() {
+            document.getElementById('purchase-popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
         }
 
-        function confirmPayment() {
-            const email = document.getElementById('email').value;
-            const instagram = document.getElementById('instagram').value;
-            const numero = document.getElementById('numero').value;
-            const paymentMethod = document.getElementById('paymentMethod').value;
-            const produto = document.getElementById('popupTitle').innerText;
-
-            if (paymentMethod === 'pix' && email && instagram && numero) {
-				sendEmail();
-				
-                redirectToPayment('pix', '5', produto);
-				
-            } else if (paymentMethod === 'dinheiro' && email && instagram && numero) {
-                redirectToPayment('dinheiro', '17-89', produto);
-				sendEmail();
+        function handlePaymentMethodChange() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            if (paymentMethod === 'pix') {
+                document.getElementById('pix-payment').style.display = 'block';
+                document.getElementById('cash-payment').style.display = 'none';
+            } else if (paymentMethod === 'dinheiro') {
+                document.getElementById('pix-payment').style.display = 'none';
+                document.getElementById('cash-payment').style.display = 'block';
             } else {
-                alert('Por favor, preencha todos os campos obrigatórios.');
+                document.getElementById('pix-payment').style.display = 'none';
+                document.getElementById('cash-payment').style.display = 'none';
             }
         }
-		
 
-		
-		
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const instagram = document.getElementById('instagram').value;
+            const paymentMethod = document.getElementById('payment-method').value;
 
-        function redirectToPayment(method, price, produto) {
-            window.location.href = `pagamento.html?method=${method}&price=${price}&produto=${produto}`;
-        }
-		
-		function hideContentPopup() {
-			document.querySelector('.overlay').style.display = 'none';
-			document.getElementById('contentPopup').style.display = 'none';
-		}
-
-        function showContentPopup(materia) {
-            let conteudo = '';
-
-            switch (materia) {
-                case 'Biologia':
-                    conteudo = `Bioquímica\nBotânica\nCitologia\nEmbriologia\nEcologia\nEvolução\nFisiologia\nGenética\nHistologia\nMicrobiologia\nZoologia`;
-                    break;
-                case 'Física':
-                    conteudo = `Calorimetria\nCinemática\nDinâmica\nEletrostática\nEnergia\nEstática\nGravitação Universal\nMecânica Impulsiva\nOndulatória\nTermodinâmica\nTermometria e Dilatometria\nFórmulas de Física`;
-                    break;
-                case 'Geografia':
-                    conteudo = `Agricultura\nCartografia\nComércio e Transportes\nElementos e Fatores do clima\nGlobalização\nHidrografia\nIndustrialização\nLitosfera\nPopulação\nRecursos Energéticos\nRegionalização\nRelevo do Brasil\nSolos\nUrbanização\nVegetação`;
-                    break;
-                case 'História':
-                    conteudo = `A Era das Revoluções\nAmérica e Brasil na Época Colonial\nBrasil dos anos 80 e 2000\nBrasil Império\nBrasil República\nEUA e Europa no século XIX\nGuerras Mundiais\nHistória Antiga\nIdade Média\nIdade Moderna\nMundo Bipolar\nRegime Militar`;
-                    break;
-                case 'Filosofia':
-                    conteudo = `Epistemologia\nFilosofia Moral\nFilosofia Política`;
-                    break;
-                case 'Sociologia':
-                    conteudo = `Introdução e Origem\nConceitos Fundamentais`;
-                    break;
-                case 'Artes':
-                    conteudo = `Arte Clássica\nArte Moderna\nPré-História`;
-                    break;
-				case 'Química':
-					conteudo = 'Cinética Química, Dispersões, Eletroquímica, Equilíbrio Químico, Estudo Físico dos Gases, Ligações Químicas, Matéria e Energia, Química Ambiental, Química Inorgânica, Química Orgânica, Transformações Químicas, Termoquímica';
-					break;
-                case 'Literatura':
-                    conteudo = `Escolas Literárias\nLiteratura no Brasil Colônia\nLiteratura no Brasil Império\nLiteratura no Brasil República`;
-                    break;
-                case 'Português':
-                    conteudo = `Gramática Geral`;
-                    break;
-                case 'Matemática':
-                    conteudo = `Estatística\nFunção\nGeometria Plana\nPorcentagem\nRazão e Proporção\n.`;
-                    break;
-				case 'Redação':
-					conteudo = `Cartilha de Redação Nota 1000\nDiversos Repertórios Enem de acordo com Eixo Temático\nModelo Redação UERJ\nEnriquecimento de vocabulário, conectivos textuais, estratégias, etc.`;
-					break;
+            if (!name || !phone || !instagram || !paymentMethod) {
+                alert('Por favor, preencha todos os campos.');
+                return;
             }
 
-            document.getElementById('contentDescription').innerText = conteudo;
-            document.querySelector('.overlay').style.display = 'block';
-            document.getElementById('contentPopup').style.display = 'block';
+            const emailBody = `
+                <p>Nome: ${name}</p>
+                <p>Telefone: ${phone}</p>
+                <p>Instagram: ${instagram}</p>
+                <p>Método de Pagamento: ${paymentMethod}</p>
+            `;
+
+            window.location.href = `mailto:throdrigf@gmail.com?subject=Confirmação de Compra&body=${encodeURIComponent(emailBody)}`;
+        }
+
+        function showContentPopup(subject) {
+            const contentList = {
+                Biologia: ['Citologia', 'Genética', 'Ecologia', 'Evolução', 'Fisiologia'],
+                Física: ['Mecânica', 'Termodinâmica', 'Ondulatória', 'Óptica', 'Eletromagnetismo'],
+                Química: ['Química Orgânica', 'Química Inorgânica', 'Físico-Química', 'Bioquímica'],
+                Geografia: ['Geografia Física', 'Geografia Humana', 'Cartografia', 'Geopolítica'],
+                História: ['História do Brasil', 'História Geral', 'História Antiga', 'História Contemporânea'],
+                Filosofia: ['Ética', 'Metafísica', 'Epistemologia', 'Estética', 'Lógica'],
+                Sociologia: ['Teoria Sociológica', 'Instituições Sociais', 'Estratificação Social', 'Cultura'],
+                Artes: ['História da Arte', 'Estilos Artísticos', 'Movimentos Artísticos'],
+                Português: ['Gramática', 'Literatura Brasileira', 'Interpretação de Textos'],
+                Matemática: ['Álgebra', 'Geometria', 'Trigonometria', 'Cálculo', 'Estatística']
+            };
+
+            document.getElementById('content-subject').textContent = subject;
+            document.getElementById('content-list').innerHTML = contentList[subject].map(item => `<li>${item}</li>`).join('');
+            document.getElementById('content-popup').style.display = 'block';
+            document.getElementById('content-overlay').style.display = 'block';
+        }
+
+        function closeContentPopup() {
+            document.getElementById('content-popup').style.display = 'none';
+            document.getElementById('content-overlay').style.display = 'none';
+        }
+
+        function showLoginPopup() {
+            document.getElementById('login-popup').style.display = 'block';
+            document.getElementById('login-overlay').style.display = 'block';
+        }
+
+        function closeLoginPopup() {
+            document.getElementById('login-popup').style.display = 'none';
+            document.getElementById('login-overlay').style.display = 'none';
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username === 'thiago' && password === '123456') {
+                alert('Login bem-sucedido!');
+                closeLoginPopup();
+            } else {
+                alert('Username ou password incorreto!');
+            }
+        });
+
+        function showCookiesPopup() {
+            document.getElementById('cookies-popup').style.display = 'block';
+            document.getElementById('cookies-overlay').style.display = 'block';
+        }
+
+        function closeCookiesPopup() {
+            document.getElementById('cookies-popup').style.display = 'none';
+            document.getElementById('cookies-overlay').style.display = 'none';
         }
     </script>
 </body>
