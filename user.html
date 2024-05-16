@@ -121,15 +121,20 @@
                 document.getElementById('modelo-redacao').addEventListener('click', function () {
                     this.querySelector('.detalhes').style.display = 'block';
                 });
+            }
+        });
+
+    // Verificação para o segundo curso
+    fetch('https://pastebin.com/raw/FZ8vDEHC')
+        .then(response => response.json())
+        .then(data => {
+            if (data.includes(username)) {
                 document.getElementById('resumao-vest').style.display = 'block';
                 document.getElementById('resumao-vest').addEventListener('click', function () {
                     this.querySelector('.detalhes').style.display = 'block';
                 });
-            } else {
-                document.body.innerHTML += '<p>Você não tem acesso a nenhum curso.</p>';
             }
         });
-});
 
         const users = [
             { username: 'thiago', password: '123456' },

@@ -256,13 +256,13 @@
 			<h2>Modelo de Redação Enem 900+</h2>
 			<p>
 
-				Desenvolvi meticulosamente este modelo de redação ao longo de dois dias, garantindo que ele se encaixe perfeitamente em qualquer tema proposto, tornando a memorização das ideias simples e eficaz. Com essa abordagem cuidadosa, obtive uma pontuação impressionante de 960 pontos no Enem, e estou confiante de que qualquer pessoa que utilizar esse modelo também poderá alcançar resultados excepcionais.
+				Desenvolvi meticulosamente este modelo de redação ao longo de dois dias, garantindo que ele se encaixe perfeitamente em qualquer tema proposto, tornando a memorização das ideias simples e eficaz. Consegui 960 pontos no Enem com ela, e estou confiante de que qualquer pessoa que utilizar esse modelo também poderá alcançar resultados excepcionais.
 			</p>
 			<p>
 				<span class="price">R$20,00</span>
-				<span class="discount">R$5,00 (-75%)</span>
+				<span class="discount">R$10,00 (-50%)</span>
 			</p>
-			<button class="buy-btn" onclick="showPopup('Redação Estilo Enem', 'R$5,00 (75% OFF)')">Comprar</button>
+			<button class="buy-btn" onclick="showPopup('Redação Estilo Enem', 'R$10,00 (75% OFF)')">Comprar</button>
 
 			<!-- Adicione a imagem notas.jpeg abaixo do texto -->
 			<img class="notes-image" src="notas.jpeg" alt="Notas do modelo de redação">
@@ -314,9 +314,9 @@
 		</p>
             <p>
                 <span class="price">R$35,00</span>
-                <span class="discount">R$17,89 (-49%)</span>
+                <span class="discount">R$25,00 (-28%)</span>
             </p>
-            <button class="buy-btn" onclick="showPopup('Resumão Completo ENEM, UERJ', 'R$17,89 (49% OFF)')">Comprar</button>
+            <button class="buy-btn" onclick="showPopup('Resumão Completo ENEM, UERJ', 'R$25,00 (28% OFF)')">Comprar</button>
         </div>
     </div>
     <div class="overlay" onclick="hidePopup()"></div>
@@ -442,10 +442,6 @@ function showCookiesPopup() {
             } else if (paymentMethod === 'dinheiro' && email && instagram && numero) {
                 redirectToPayment('dinheiro', '17-89', produto);
 				sendEmail();
-            } else if (paymentMethod === 'dinheiro') {
-                const mensagem = encodeURIComponent(`Olá, solicitei a compra de ${produto} no método de pagamento Dinheiro.`);
-                window.open(`https://api.whatsapp.com/send?phone=5521997770936&text=${mensagem}`);
-				sendEmail();
             } else {
                 alert('Por favor, preencha todos os campos obrigatórios.');
             }
@@ -499,7 +495,7 @@ function showCookiesPopup() {
                     conteudo = `Gramática Geral`;
                     break;
                 case 'Matemática':
-                    conteudo = `Estatística\nFunção\nGeometria Plana\nPorcentagem\nRazão e Proporção\nRedação:\nCartilha de Redação Nota 1000\nDiversos Repertórios Enem de acordo com Eixo Temático\nModelo Redação UERJ\nEnriquecimento de vocabulário, conectivos textuais, estratégias, etc.`;
+                    conteudo = `Estatística\nFunção\nGeometria Plana\nPorcentagem\nRazão e Proporção\n.`;
                     break;
 				case 'Redação':
 					conteudo = `Cartilha de Redação Nota 1000\nDiversos Repertórios Enem de acordo com Eixo Temático\nModelo Redação UERJ\nEnriquecimento de vocabulário, conectivos textuais, estratégias, etc.`;
